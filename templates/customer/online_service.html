@@ -1,0 +1,124 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+Online Services | KS Xerox
+{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <div class="card-header bg-success text-white text-center py-4">
+
+                    <h2>🌐 Online Service Request</h2>
+
+                    <p class="mb-0">
+                        Fill in your details and upload the required documents.
+                    </p>
+
+                </div>
+
+                <div class="card-body p-5">
+
+                    <form>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Customer Name
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Enter your full name"
+                                   required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Mobile Number
+                            </label>
+
+                            <input type="tel"
+                                   class="form-control"
+                                   placeholder="Enter mobile number"
+                                   required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Select Service
+                            </label>
+
+                            <select class="form-select">
+
+                                <option>Aadhaar Services</option>
+                                <option>PAN Card</option>
+                                <option>Passport Application</option>
+                                <option>College Application</option>
+                                <option>Government Forms</option>
+                                <option>Train Ticket Booking</option>
+                                <option>Bus Ticket Booking</option>
+                                <option>Flight Ticket Booking</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Upload Required Documents
+                            </label>
+
+                            <input type="file"
+                                   class="form-control"
+                                   multiple>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Additional Notes
+                            </label>
+
+                            <textarea class="form-control"
+                                      rows="4"
+                                      placeholder="Enter additional details if required"></textarea>
+
+                        </div>
+
+                        <div class="text-center mt-4">
+
+                            <button class="btn btn-success btn-lg px-5">
+
+                                Submit Request
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

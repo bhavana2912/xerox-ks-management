@@ -1,0 +1,180 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+Upload Document | KS Xerox
+{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <div class="card-header bg-primary text-white text-center py-4">
+
+                    <h2>📤 Upload Your Document</h2>
+
+                    <p class="mb-0">
+                        Upload your file and place your order
+                    </p>
+
+                </div>
+
+                <div class="card-body p-5">
+
+                    <form>
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-bold">
+                                Selected Service
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   value="{{ service }}"
+                                   readonly>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-bold">
+                                Customer Name
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Enter your name">
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-bold">
+                                Mobile Number
+                            </label>
+
+                            <input type="tel"
+                                   class="form-control"
+                                   placeholder="Enter mobile number">
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-bold">
+                                Upload Document
+                            </label>
+
+                            <input type="file"
+                                   class="form-control"
+                                   accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label fw-bold">
+                                    Paper Size
+                                </label>
+
+                                <select class="form-select">
+
+                                    <option>A4</option>
+                                    <option>A3</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label fw-bold">
+                                    Print Type
+                                </label>
+
+                                <select class="form-select">
+
+                                    <option>Black & White</option>
+                                    <option>Color</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label fw-bold">
+                                    Print Side
+                                </label>
+
+                                <select class="form-select">
+
+                                    <option>Single Side</option>
+                                    <option>Double Side</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label fw-bold">
+                                    Number of Copies
+                                </label>
+
+                                <input type="number"
+                                       class="form-control"
+                                       value="1"
+                                       min="1">
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-bold">
+                                Additional Instructions
+                            </label>
+
+                            <textarea class="form-control"
+                                      rows="4"
+                                      placeholder="Example: Print only pages 2-10"></textarea>
+
+                        </div>
+
+                        <div class="text-center">
+
+                            <button class="btn btn-primary btn-lg px-5">
+
+                                Submit Order
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

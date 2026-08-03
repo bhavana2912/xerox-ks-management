@@ -1,0 +1,174 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+Mobile Repair | KS Xerox
+{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <div class="card-header bg-dark text-white text-center py-4">
+
+                    <h2>📱 Mobile Repair Booking</h2>
+
+                    <p class="mb-0">
+                        Book your mobile repair service quickly.
+                    </p>
+
+                </div>
+
+                <div class="card-body p-5">
+
+                    <form>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Customer Name
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Enter your full name"
+                                   required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Mobile Number
+                            </label>
+
+                            <input type="tel"
+                                   class="form-control"
+                                   placeholder="Enter your mobile number"
+                                   required>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label fw-bold">
+                                    Mobile Brand
+                                </label>
+
+                                <select class="form-select">
+
+                                    <option>Samsung</option>
+                                    <option>Redmi</option>
+                                    <option>Realme</option>
+                                    <option>Vivo</option>
+                                    <option>Oppo</option>
+                                    <option>Apple</option>
+                                    <option>OnePlus</option>
+                                    <option>Motorola</option>
+                                    <option>Other</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label fw-bold">
+                                    Mobile Model
+                                </label>
+
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Example: Redmi Note 12">
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Repair Type
+                            </label>
+
+                            <select class="form-select">
+
+                                <option>Display Replacement</option>
+                                <option>Battery Replacement</option>
+                                <option>Charging Port Repair</option>
+                                <option>Speaker Problem</option>
+                                <option>Camera Repair</option>
+                                <option>Software Issue</option>
+                                <option>Water Damage</option>
+                                <option>Other</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Describe the Problem
+                            </label>
+
+                            <textarea class="form-control"
+                                      rows="4"
+                                      placeholder="Explain your mobile problem"></textarea>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Upload Mobile Photo (Optional)
+                            </label>
+
+                            <input type="file"
+                                   class="form-control"
+                                   accept="image/*">
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Preferred Visit Date
+                            </label>
+
+                            <input type="date"
+                                   class="form-control">
+
+                        </div>
+
+                        <div class="text-center mt-4">
+
+                            <button type="submit"
+                                    class="btn btn-dark btn-lg px-5">
+
+                                📱 Book Repair
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
