@@ -8,166 +8,186 @@ Mobile Repair | KS Xerox
 
 <section class="container py-5">
 
-    <div class="row justify-content-center">
+<div class="row justify-content-center">
 
-        <div class="col-lg-8">
+<div class="col-lg-8">
 
-            <div class="card shadow-lg border-0 rounded-4">
+<div class="card shadow-lg border-0 rounded-4">
 
-                <div class="card-header bg-dark text-white text-center py-4">
+<div class="card-header bg-dark text-white text-center py-4">
 
-                    <h2>📱 Mobile Repair Booking</h2>
+<h2>📱 Mobile Repair Booking</h2>
 
-                    <p class="mb-0">
-                        Book your mobile repair service quickly.
-                    </p>
+<p class="mb-0">
+Book your mobile repair service quickly.
+</p>
 
-                </div>
+</div>
 
-                <div class="card-body p-5">
+<div class="card-body p-5">
 
-                    <form>
+<form
+action="/submit-mobile-repair"
+method="POST"
+enctype="multipart/form-data">
 
-                        <div class="mb-3">
+<div class="mb-3">
 
-                            <label class="form-label fw-bold">
-                                Customer Name
-                            </label>
+<label class="form-label fw-bold">
+Customer Name
+</label>
 
-                            <input type="text"
-                                   class="form-control"
-                                   placeholder="Enter your full name"
-                                   required>
+<input
+type="text"
+name="customer_name"
+class="form-control"
+placeholder="Enter your full name"
+required>
 
-                        </div>
+</div>
 
-                        <div class="mb-3">
+<div class="mb-3">
 
-                            <label class="form-label fw-bold">
-                                Mobile Number
-                            </label>
+<label class="form-label fw-bold">
+Mobile Number
+</label>
 
-                            <input type="tel"
-                                   class="form-control"
-                                   placeholder="Enter your mobile number"
-                                   required>
+<input
+type="tel"
+name="mobile"
+class="form-control"
+placeholder="Enter your mobile number"
+required>
 
-                        </div>
+</div>
 
-                        <div class="row">
+<div class="row">
 
-                            <div class="col-md-6 mb-3">
+<div class="col-md-6 mb-3">
 
-                                <label class="form-label fw-bold">
-                                    Mobile Brand
-                                </label>
+<label class="form-label fw-bold">
+Mobile Brand
+</label>
 
-                                <select class="form-select">
+<select
+name="brand"
+class="form-select">
 
-                                    <option>Samsung</option>
-                                    <option>Redmi</option>
-                                    <option>Realme</option>
-                                    <option>Vivo</option>
-                                    <option>Oppo</option>
-                                    <option>Apple</option>
-                                    <option>OnePlus</option>
-                                    <option>Motorola</option>
-                                    <option>Other</option>
+<option>Samsung</option>
+<option>Redmi</option>
+<option>Realme</option>
+<option>Vivo</option>
+<option>Oppo</option>
+<option>Apple</option>
+<option>OnePlus</option>
+<option>Motorola</option>
+<option>Other</option>
 
-                                </select>
+</select>
 
-                            </div>
+</div>
 
-                            <div class="col-md-6 mb-3">
+<div class="col-md-6 mb-3">
 
-                                <label class="form-label fw-bold">
-                                    Mobile Model
-                                </label>
+<label class="form-label fw-bold">
+Mobile Model
+</label>
 
-                                <input type="text"
-                                       class="form-control"
-                                       placeholder="Example: Redmi Note 12">
+<input
+type="text"
+name="model"
+class="form-control"
+placeholder="Example: Redmi Note 12">
 
-                            </div>
+</div>
 
-                        </div>
+</div>
 
-                        <div class="mb-3">
+<div class="mb-3">
 
-                            <label class="form-label fw-bold">
-                                Repair Type
-                            </label>
+<label class="form-label fw-bold">
+Repair Type
+</label>
 
-                            <select class="form-select">
+<select
+name="repair_type"
+class="form-select">
 
-                                <option>Display Replacement</option>
-                                <option>Battery Replacement</option>
-                                <option>Charging Port Repair</option>
-                                <option>Speaker Problem</option>
-                                <option>Camera Repair</option>
-                                <option>Software Issue</option>
-                                <option>Water Damage</option>
-                                <option>Other</option>
+<option>Display Replacement</option>
+<option>Battery Replacement</option>
+<option>Charging Port Repair</option>
+<option>Speaker Problem</option>
+<option>Camera Repair</option>
+<option>Software Issue</option>
+<option>Water Damage</option>
+<option>Other</option>
 
-                            </select>
+</select>
 
-                        </div>
+</div>
+<div class="mb-3">
 
-                        <div class="mb-3">
+<label class="form-label fw-bold">
+Describe the Problem
+</label>
 
-                            <label class="form-label fw-bold">
-                                Describe the Problem
-                            </label>
+<textarea
+name="problem"
+class="form-control"
+rows="4"
+placeholder="Explain your mobile problem"
+required></textarea>
 
-                            <textarea class="form-control"
-                                      rows="4"
-                                      placeholder="Explain your mobile problem"></textarea>
+</div>
 
-                        </div>
+<div class="mb-3">
 
-                        <div class="mb-3">
+<label class="form-label fw-bold">
+Upload Mobile Photo (Optional)
+</label>
 
-                            <label class="form-label fw-bold">
-                                Upload Mobile Photo (Optional)
-                            </label>
+<input
+type="file"
+name="photo"
+class="form-control"
+accept="image/*">
 
-                            <input type="file"
-                                   class="form-control"
-                                   accept="image/*">
+</div>
 
-                        </div>
+<div class="mb-3">
 
-                        <div class="mb-3">
+<label class="form-label fw-bold">
+Preferred Visit Date
+</label>
 
-                            <label class="form-label fw-bold">
-                                Preferred Visit Date
-                            </label>
+<input
+type="date"
+name="visit_date"
+class="form-control">
 
-                            <input type="date"
-                                   class="form-control">
+</div>
 
-                        </div>
+<div class="text-center mt-4">
 
-                        <div class="text-center mt-4">
+<button
+type="submit"
+class="btn btn-dark btn-lg px-5">
 
-                            <button type="submit"
-                                    class="btn btn-dark btn-lg px-5">
+📱 Book Repair
 
-                                📱 Book Repair
+</button>
 
-                            </button>
+</div>
 
-                        </div>
+</form>
 
-                    </form>
+</div>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-        </div>
-
-    </div>
+</div>
 
 </section>
 

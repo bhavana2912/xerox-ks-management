@@ -1,123 +1,108 @@
-{% extends "layout/base.html" %}
+<form
+action="/submit-online-service"
+method="POST"
+enctype="multipart/form-data">
 
-{% block title %}
-Online Services | KS Xerox
-{% endblock %}
+<div class="mb-3">
 
-{% block content %}
+<label class="form-label fw-bold">
+Customer Name
+</label>
 
-<section class="container py-5">
+<input
+type="text"
+name="customer_name"
+class="form-control"
+placeholder="Enter your full name"
+required>
 
-    <div class="row justify-content-center">
+</div>
 
-        <div class="col-lg-8">
+<div class="mb-3">
 
-            <div class="card shadow-lg border-0 rounded-4">
+<label class="form-label fw-bold">
+Mobile Number
+</label>
 
-                <div class="card-header bg-success text-white text-center py-4">
+<input
+type="tel"
+name="mobile"
+class="form-control"
+placeholder="Enter mobile number"
+required>
 
-                    <h2>🌐 Online Service Request</h2>
+</div>
 
-                    <p class="mb-0">
-                        Fill in your details and upload the required documents.
-                    </p>
+<div class="mb-3">
 
-                </div>
+<label class="form-label fw-bold">
+Select Service
+</label>
 
-                <div class="card-body p-5">
+<select
+name="service"
+class="form-select">
 
-                    <form>
+<option>Aadhaar Services</option>
+<option>PAN Card</option>
+<option>Passport Application</option>
+<option>College Application</option>
+<option>Government Forms</option>
+<option>Train Ticket Booking</option>
+<option>Bus Ticket Booking</option>
+<option>Flight Ticket Booking</option>
 
-                        <div class="mb-3">
+</select>
 
-                            <label class="form-label fw-bold">
-                                Customer Name
-                            </label>
+</div>
 
-                            <input type="text"
-                                   class="form-control"
-                                   placeholder="Enter your full name"
-                                   required>
+<div class="mb-3">
 
-                        </div>
+<label class="form-label fw-bold">
+Upload Required Documents
+</label>
 
-                        <div class="mb-3">
+<input
+type="file"
+name="document"
+class="form-control">
 
-                            <label class="form-label fw-bold">
-                                Mobile Number
-                            </label>
+</div>
+<div class="mb-3">
 
-                            <input type="tel"
-                                   class="form-control"
-                                   placeholder="Enter mobile number"
-                                   required>
+<label class="form-label fw-bold">
+Additional Notes
+</label>
 
-                        </div>
+<textarea
+name="notes"
+class="form-control"
+rows="4"
+placeholder="Enter additional details if required"></textarea>
 
-                        <div class="mb-3">
+</div>
 
-                            <label class="form-label fw-bold">
-                                Select Service
-                            </label>
+<div class="text-center mt-4">
 
-                            <select class="form-select">
+<button
+type="submit"
+class="btn btn-success btn-lg px-5">
 
-                                <option>Aadhaar Services</option>
-                                <option>PAN Card</option>
-                                <option>Passport Application</option>
-                                <option>College Application</option>
-                                <option>Government Forms</option>
-                                <option>Train Ticket Booking</option>
-                                <option>Bus Ticket Booking</option>
-                                <option>Flight Ticket Booking</option>
+🌐 Submit Request
 
-                            </select>
+</button>
 
-                        </div>
+</div>
 
-                        <div class="mb-3">
+</form>
 
-                            <label class="form-label fw-bold">
-                                Upload Required Documents
-                            </label>
+</div>
 
-                            <input type="file"
-                                   class="form-control"
-                                   multiple>
+</div>
 
-                        </div>
+</div>
 
-                        <div class="mb-3">
-
-                            <label class="form-label fw-bold">
-                                Additional Notes
-                            </label>
-
-                            <textarea class="form-control"
-                                      rows="4"
-                                      placeholder="Enter additional details if required"></textarea>
-
-                        </div>
-
-                        <div class="text-center mt-4">
-
-                            <button class="btn btn-success btn-lg px-5">
-
-                                Submit Request
-
-                            </button>
-
-                        </div>
-
-                    </form>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
