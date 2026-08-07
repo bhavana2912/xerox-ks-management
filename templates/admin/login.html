@@ -12,21 +12,21 @@
 
 </head>
 
-<body style="background:#f4f7fc;">
+<body style="background:linear-gradient(135deg,#0d6efd,#42a5f5);">
 
 <div class="container">
 
     <div class="row justify-content-center align-items-center" style="min-height:100vh;">
 
-        <div class="col-md-5">
+        <div class="col-lg-5">
 
-            <div class="card shadow-lg border-0">
+            <div class="card border-0 shadow-lg rounded-4">
 
                 <div class="card-body p-5">
 
-                    <div class="text-center">
+                    <div class="text-center mb-4">
 
-                        <h1>🖨️</h1>
+                        <h1 style="font-size:70px;">🖨️</h1>
 
                         <h2 class="fw-bold text-primary">
                             KS Xerox Admin
@@ -38,17 +38,24 @@
 
                     </div>
 
-                    <form action="/admin/dashboard" method="GET">
+                    {% if error %}
+                    <div class="alert alert-danger text-center">
+                        {{ error }}
+                    </div>
+                    {% endif %}
+
+                    <form action="/admin-login" method="POST">
 
                         <div class="mb-3">
 
-                            <label class="form-label">
+                            <label class="form-label fw-bold">
                                 Username
                             </label>
 
                             <input
                                 type="text"
-                                class="form-control"
+                                name="username"
+                                class="form-control form-control-lg"
                                 placeholder="Enter Username"
                                 required>
 
@@ -56,26 +63,42 @@
 
                         <div class="mb-4">
 
-                            <label class="form-label">
+                            <label class="form-label fw-bold">
                                 Password
                             </label>
 
                             <input
                                 type="password"
-                                class="form-control"
+                                name="password"
+                                class="form-control form-control-lg"
                                 placeholder="Enter Password"
                                 required>
 
                         </div>
 
                         <button
-                            class="btn btn-primary w-100">
+                            type="submit"
+                            class="btn btn-primary btn-lg w-100">
 
-                            Login
+                            🔐 Login
 
                         </button>
 
                     </form>
+
+                    <hr>
+
+                    <div class="text-center">
+
+                        <small class="text-muted">
+
+                            KS Xerox & Mobile Service
+                            <br>
+                            Admin Panel
+
+                        </small>
+
+                    </div>
 
                 </div>
 
@@ -88,4 +111,5 @@
 </div>
 
 </body>
+
 </html>

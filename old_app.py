@@ -1,17 +1,19 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from firebase_config import db
 import os
 
 app = Flask(__name__)
 
-app.secret_key = "ks_xerox_secret_key"
+# ==========================================
+# UPLOAD FOLDER
+# ==========================================
 
 UPLOAD_FOLDER = "static/uploads"
+
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
 
 # ==========================================
 # CUSTOMER ROUTES
@@ -81,18 +83,10 @@ def submit_xerox_order():
     filename = ""
 
     if document and document.filename != "":
-
         filename = secure_filename(document.filename)
-
-        document.save(
-            os.path.join(
-                app.config["UPLOAD_FOLDER"],
-                filename
-            )
-        )
+        document.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
 
     db.collection("xerox_orders").add({
-
         "customer_name": customer_name,
         "mobile": mobile,
         "paper_size": paper_size,
@@ -102,11 +96,12 @@ def submit_xerox_order():
         "instructions": instructions,
         "document": filename,
         "status": "Pending"
-
     })
 
     return redirect(url_for("success"))
-    # ==========================================
+
+
+# ==========================================
 # SUBMIT MOBILE REPAIR
 # ==========================================
 
@@ -126,18 +121,10 @@ def submit_mobile_repair():
     filename = ""
 
     if photo and photo.filename != "":
-
         filename = secure_filename(photo.filename)
-
-        photo.save(
-            os.path.join(
-                app.config["UPLOAD_FOLDER"],
-                filename
-            )
-        )
+        photo.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
 
     db.collection("mobile_orders").add({
-
         "customer_name": customer_name,
         "mobile": mobile,
         "brand": brand,
@@ -147,7 +134,6 @@ def submit_mobile_repair():
         "visit_date": visit_date,
         "photo": filename,
         "status": "Pending"
-
     })
 
     return redirect(url_for("success"))
@@ -170,127 +156,126 @@ def submit_online_service():
     filename = ""
 
     if document and document.filename != "":
-
         filename = secure_filename(document.filename)
-
-        document.save(
-            os.path.join(
-                app.config["UPLOAD_FOLDER"],
-                filename
-            )
-        )
+        document.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
 
     db.collection("online_orders").add({
-
         "customer_name": customer_name,
         "mobile": mobile,
         "service": service,
         "notes": notes,
         "document": filename,
         "status": "Pending"
-
     })
 
     return redirect(url_for("success"))
 
     # ==========================================
-# ADMIN LOGIN
+# SUBMIT XEROX ORDER
 # ==========================================
 
-@app.route("/admin")
-def admin():
+@app.route("/submit-xerox-order", methods=["POST"])
+def submit_xerox_order():
 
-    if "admin" in session:
-        return redirect(url_for("admin_dashboard"))
+    customer_name = request.form.get("customer_name")
+    mobile = request.form.get("mobile")
+    paper_size = request.form.get("paper_size")
+    print_type = request.form.get("print_type")
+    print_side = request.form.get("print_side")
+    copies = request.form.get("copies")
+    instructions = request.form.get("instructions")
 
-    return render_template("admin/login.html")
+    document = request.files.get("document")
+
+    filename = ""
+
+    if document and document.filename != "":
+        filename = secure_filename(document.filename)
+        document.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+
+    db.collection("xerox_orders").add({
+        "customer_name": customer_name,
+        "mobile": mobile,
+        "paper_size": paper_size,
+        "print_type": print_type,
+        "print_side": print_side,
+        "copies": copies,
+        "instructions": instructions,
+        "document": filename,
+        "status": "Pending"
+    })
+
+    return redirect(url_for("success"))
 
 
 # ==========================================
-# ADMIN LOGIN AUTHENTICATION
+# SUBMIT MOBILE REPAIR
 # ==========================================
 
-@app.route("/admin-login", methods=["POST"])
-def admin_login():
+@app.route("/submit-mobile-repair", methods=["POST"])
+def submit_mobile_repair():
 
-    username = request.form.get("username")
-    password = request.form.get("password")
+    customer_name = request.form.get("customer_name")
+    mobile = request.form.get("mobile")
+    brand = request.form.get("brand")
+    model = request.form.get("model")
+    repair_type = request.form.get("repair_type")
+    problem = request.form.get("problem")
+    visit_date = request.form.get("visit_date")
 
-    ADMIN_USERNAME = "admin"
-    ADMIN_PASSWORD = "ksxerox123"
+    photo = request.files.get("photo")
 
-    if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
+    filename = ""
 
-        session["admin"] = True
+    if photo and photo.filename != "":
+        filename = secure_filename(photo.filename)
+        photo.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
 
-        return redirect(url_for("admin_dashboard"))
+    db.collection("mobile_orders").add({
+        "customer_name": customer_name,
+        "mobile": mobile,
+        "brand": brand,
+        "model": model,
+        "repair_type": repair_type,
+        "problem": problem,
+        "visit_date": visit_date,
+        "photo": filename,
+        "status": "Pending"
+    })
 
-    return render_template(
-        "admin/login.html",
-        error="Invalid Username or Password"
-    )
+    return redirect(url_for("success"))
 
 
 # ==========================================
-# ADMIN DASHBOARD
+# SUBMIT ONLINE SERVICE
 # ==========================================
 
-@app.route("/admin/dashboard")
-def admin_dashboard():
+@app.route("/submit-online-service", methods=["POST"])
+def submit_online_service():
 
-    if "admin" not in session:
-        return redirect(url_for("admin"))
+    customer_name = request.form.get("customer_name")
+    mobile = request.form.get("mobile")
+    service = request.form.get("service")
+    notes = request.form.get("notes")
 
-    xerox_docs = db.collection("xerox_orders").stream()
-    mobile_docs = db.collection("mobile_orders").stream()
-    online_docs = db.collection("online_orders").stream()
+    document = request.files.get("document")
 
-    xerox_orders = []
-    mobile_orders = []
-    online_orders = []
+    filename = ""
 
-    for doc in xerox_docs:
-        order = doc.to_dict()
-        order["id"] = doc.id
-        order["service"] = "Xerox"
-        xerox_orders.append(order)
+    if document and document.filename != "":
+        filename = secure_filename(document.filename)
+        document.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
 
-    for doc in mobile_docs:
-        order = doc.to_dict()
-        order["id"] = doc.id
-        order["service"] = "Mobile Repair"
-        mobile_orders.append(order)
+    db.collection("online_orders").add({
+        "customer_name": customer_name,
+        "mobile": mobile,
+        "service": service,
+        "notes": notes,
+        "document": filename,
+        "status": "Pending"
+    })
 
-    for doc in online_docs:
-        order = doc.to_dict()
-        order["id"] = doc.id
-        order["service"] = "Online Service"
-        online_orders.append(order)
-
-    xerox_count = len(xerox_orders)
-    mobile_count = len(mobile_orders)
-    online_count = len(online_orders)
-
-    total_requests = (
-        xerox_count +
-        mobile_count +
-        online_count
-    )
-
-    recent_requests = (
-        xerox_orders +
-        mobile_orders +
-        online_orders
-    )
-
-    return render_template(
-        "admin/dashboard.html",
-        xerox_count=xerox_count,
-        mobile_count=mobile_count,
-        online_count=online_count,
-        total_requests=total_requests,
-        recent_requests=recent_requests
-    )
+    return redirect(url_for("success"))
 
     # ==========================================
 # ADMIN XEROX ORDERS
@@ -298,9 +283,6 @@ def admin_dashboard():
 
 @app.route("/admin/xerox-orders")
 def xerox_orders():
-
-    if "admin" not in session:
-        return redirect(url_for("admin"))
 
     docs = db.collection("xerox_orders").stream()
 
@@ -324,9 +306,6 @@ def xerox_orders():
 @app.route("/admin/mobile-orders")
 def mobile_orders():
 
-    if "admin" not in session:
-        return redirect(url_for("admin"))
-
     docs = db.collection("mobile_orders").stream()
 
     orders = []
@@ -348,9 +327,6 @@ def mobile_orders():
 
 @app.route("/admin/online-orders")
 def admin_online_orders():
-
-    if "admin" not in session:
-        return redirect(url_for("admin"))
 
     docs = db.collection("online_orders").stream()
 
@@ -374,9 +350,6 @@ def admin_online_orders():
 @app.route("/admin/xerox-order/<order_id>")
 def view_xerox_order(order_id):
 
-    if "admin" not in session:
-        return redirect(url_for("admin"))
-
     doc = db.collection("xerox_orders").document(order_id).get()
 
     if not doc.exists:
@@ -398,9 +371,6 @@ def view_xerox_order(order_id):
 @app.route("/update-status/<order_id>/<status>")
 def update_status(order_id, status):
 
-    if "admin" not in session:
-        return redirect(url_for("admin"))
-
     db.collection("xerox_orders").document(order_id).update({
         "status": status
     })
@@ -414,9 +384,6 @@ def update_status(order_id, status):
 
 @app.route("/logout")
 def logout():
-
-    session.clear()
-
     return redirect(url_for("admin"))
 
 

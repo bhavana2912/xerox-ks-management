@@ -8,136 +8,157 @@ Home | KS Xerox & Mobile Service
 
 <!-- Hero Section -->
 
-<section class="hero py-5" style="background: linear-gradient(135deg,#0d6efd,#4dabf7); color:white;">
 
-    <div class="container">
+<section class="hero py-5"
+style="background:linear-gradient(135deg,#0d6efd,#42a5f5); color:white; min-height:650px; display:flex; align-items:center;">
 
-        <div class="row align-items-center">
+<div class="container">
 
-            <div class="col-lg-6">
+<div class="row align-items-center">
 
-                <h1 class="display-4 fw-bold">
-                    KS Xerox & Mobile Service
-                </h1>
+<div class="col-lg-6">
 
-                <p class="lead mt-4">
+<span class="badge bg-warning text-dark px-3 py-2 mb-3">
+⭐ Trusted Xerox Shop in Bahour
+</span>
 
-                    Your One-Stop Solution for Xerox, Printing,
-                    Online Applications and Mobile Repair.
+<h1 class="display-3 fw-bold">
 
-                </p>
+KS Xerox & Mobile Service
 
-                <div class="mt-4">
+</h1>
 
-                    <a href="/services" class="btn btn-light btn-lg me-3">
-                        🖨️ Explore Services
-                    </a>
+<p class="lead mt-4">
 
-                    <a href="/service-request" class="btn btn-warning btn-lg">
-                        📋 Service Request
-                    </a>
+Professional Xerox, Printing, Lamination,
+Online Applications, Passport Photos and
+Mobile Repair Services under one roof.
 
-                </div>
+</p>
 
-            </div>
+<div class="mt-5">
 
-            <div class="col-lg-6 text-center">
+<a href="/services"
+class="btn btn-light btn-lg me-3">
 
-                <img src="https://placehold.co/550x350?text=KS+Xerox+%26+Mobile+Service"
-                     class="img-fluid rounded shadow-lg">
+🖨 Explore Services
 
-            </div>
+</a>
 
-        </div>
+<a href="/service-request"
+class="btn btn-warning btn-lg">
 
-    </div>
+📋 Request Service
+
+</a>
+
+</div>
+
+</div>
+
+<div class="col-lg-6 text-center">
+
+<img
+src="{{ url_for('static', filename='images/logo.png') }}"
+class="img-fluid"
+style="max-width:450px;"
+alt="KS Xerox">
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <!-- Statistics -->
 
-<section class="py-5 bg-light">
+<section class="py-5 bg-white">
 
     <div class="container">
 
-        <div class="row text-center">
+        <div class="row text-center g-4">
 
             <div class="col-md-3">
 
-                <h2 class="text-primary fw-bold">5000+</h2>
+                <div class="card shadow border-0 rounded-4 p-4 h-100">
 
-                <p>Happy Customers</p>
+                    <h1 class="text-primary fw-bold">
+                        5000+
+                    </h1>
+
+                    <h5 class="mt-3">
+                        Happy Customers
+                    </h5>
+
+                    <p class="text-muted">
+                        Trusted by thousands of customers.
+                    </p>
+
+                </div>
 
             </div>
 
             <div class="col-md-3">
 
-                <h2 class="text-primary fw-bold">50000+</h2>
+                <div class="card shadow border-0 rounded-4 p-4 h-100">
 
-                <p>Documents Printed</p>
+                    <h1 class="text-success fw-bold">
+                        50000+
+                    </h1>
+
+                    <h5 class="mt-3">
+                        Documents Printed
+                    </h5>
+
+                    <p class="text-muted">
+                        High-quality printing every day.
+                    </p>
+
+                </div>
 
             </div>
 
             <div class="col-md-3">
 
-                <h2 class="text-primary fw-bold">1000+</h2>
+                <div class="card shadow border-0 rounded-4 p-4 h-100">
 
-                <p>Mobile Repairs</p>
+                    <h1 class="text-warning fw-bold">
+                        1000+
+                    </h1>
+
+                    <h5 class="mt-3">
+                        Mobile Repairs
+                    </h5>
+
+                    <p class="text-muted">
+                        Fast and reliable repair services.
+                    </p>
+
+                </div>
 
             </div>
 
             <div class="col-md-3">
 
-                <h2 class="text-primary fw-bold">⭐4.9</h2>
+                <div class="card shadow border-0 rounded-4 p-4 h-100">
 
-                <p>Customer Rating</p>
+                    <h1 class="text-danger fw-bold">
+                        ⭐ 4.9
+                    </h1>
+
+                    <h5 class="mt-3">
+                        Customer Rating
+                    </h5>
+
+                    <p class="text-muted">
+                        Rated highly for quality and service.
+                    </p>
+
+                </div>
 
             </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- About -->
-
-<section class="container py-5">
-
-    <div class="row align-items-center">
-
-        <div class="col-lg-6">
-
-            <img src="https://placehold.co/500x350?text=Our+Shop"
-                 class="img-fluid rounded shadow">
-
-        </div>
-
-        <div class="col-lg-6">
-
-            <h2 class="fw-bold text-primary">
-
-                About KS Xerox
-
-            </h2>
-
-            <p class="mt-4">
-
-                KS Xerox & Mobile Service is located at
-                <strong>31, West Street, Bahour, Puducherry.</strong>
-
-                We provide Xerox, Printing, Lamination,
-                Spiral Binding, Passport Photos,
-                Online Applications and Mobile Repair
-                with affordable pricing and trusted service.
-
-            </p>
-
-            <a href="/contact" class="btn btn-primary mt-3">
-
-                Contact Us
-
-            </a>
 
         </div>
 
@@ -212,32 +233,117 @@ Home | KS Xerox & Mobile Service
     </div>
 
 </section>
+<!-- Customer Reviews -->
 
-<!-- Call to Action -->
-
-<section class="py-5 text-center text-white"
-         style="background:#0d6efd;">
+<section class="py-5 bg-light">
 
     <div class="container">
 
-        <h2>
+        <div class="text-center mb-5">
 
-            Need Our Service?
+            <h2 class="fw-bold text-primary">
+                ⭐ What Our Customers Say
+            </h2>
+
+            <p class="text-muted">
+                Trusted by hundreds of happy customers.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="card shadow border-0 p-4 rounded-4">
+
+                    <h5>⭐⭐⭐⭐⭐</h5>
+
+                    <p>
+                        Excellent Xerox quality and very fast service.
+                    </p>
+
+                    <strong>- Arun Kumar</strong>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card shadow border-0 p-4 rounded-4">
+
+                    <h5>⭐⭐⭐⭐⭐</h5>
+
+                    <p>
+                        Best place for online applications and passport work.
+                    </p>
+
+                    <strong>- Priya</strong>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card shadow border-0 p-4 rounded-4">
+
+                    <h5>⭐⭐⭐⭐⭐</h5>
+
+                    <p>
+                        My mobile was repaired within one day. Great service.
+                    </p>
+
+                    <strong>- Sanjay</strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Call To Action -->
+
+<section class="py-5 text-center text-white"
+style="background:linear-gradient(135deg,#0d6efd,#0b5ed7);">
+
+    <div class="container">
+
+        <h2 class="display-5 fw-bold">
+
+            Ready to Get Started?
 
         </h2>
 
-        <p class="mt-3">
+        <p class="lead mt-3">
 
-            Submit your request online and we'll get back to you quickly.
+            Upload your documents, request online services,
+            or book a mobile repair in just a few clicks.
 
         </p>
 
-        <a href="/service-request"
-           class="btn btn-warning btn-lg">
+        <div class="mt-4">
 
-            📋 Request a Service
+            <a href="/service-request"
+               class="btn btn-warning btn-lg me-3">
 
-        </a>
+                📋 Request Service
+
+            </a>
+
+            <a href="/contact"
+               class="btn btn-light btn-lg">
+
+                📞 Contact Us
+
+            </a>
+
+        </div>
 
     </div>
 
